@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/31 19:56:19 by noshiro           #+#    #+#             */
+/*   Updated: 2022/07/31 19:56:20 by noshiro          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static	size_t	count_digits(int n)
@@ -20,7 +32,6 @@ char	*ft_uitoa(unsigned int n)
 	size_t		digits_num;
 
 	digits_num = 0;
-	
 	digits_num = digits_num + count_digits(n);
 	str_num = (char *)ft_calloc(sizeof(char), (digits_num + 1));
 	if (!str_num)

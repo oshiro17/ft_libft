@@ -6,71 +6,11 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:50:49 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 18:04:37 by noshiro          ###   ########.fr       */
+/*   Updated: 2022/07/31 20:05:07 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_printpercent(void)
-{
-	write(1, "%", 1);
-	return (1);
-}
-
-int	ft_printchar(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-}
-
-int	ft_printstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
-	ft_putstr(str);
-	return (i);
-}
-
-int	ft_printnbr(int n)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	num = ft_itoa(n);
-	len = ft_printstr(num);
-	free(num);
-	return (len);
-}
-int ft_print_unsigned(unsigned int	n){
-
-	unsigned int	len;
-	char			*num;
-
-	len = 0;
-	num = ft_uitoa(n);
-	len = ft_printstr(num);
-	free(num);
-	return (len);
-}
 
 int	ft_formats(va_list args, const char format)
 {
@@ -96,9 +36,9 @@ int	ft_formats(va_list args, const char format)
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
-	va_list args;
-	int		print_length;
+	int			i;
+	va_list		args;
+	int			print_length;
 
 	i = 0;
 	print_length = 0;
@@ -117,16 +57,17 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_length);
 }
-#include <libc.h>
-int main()
-{
-	char *s;
-	s = "あいう";
-	// s = malloc(INT_MAX);
-	// s[INT_MAX-1] = '\0';
-	// memset(s,'a',INT_MAX-1);
-	// int s;
-	// s = 9;
-   ft_printf("%s",s);
-    return(0);
-}
+
+// #include <libc.h>
+// int main()
+// {
+// 	char *s;
+// 	s = "sldkfnlskdm;flksmldknfs";
+// 	// s = malloc(INT_MAX);
+// 	// s[INT_MAX-1] = '\0';
+// 	// memset(s,'a',INT_MAX-1);
+// 	// int s;
+// 	// s = 9;
+//    ft_printf("%p",s);
+//     return(0);
+// }
