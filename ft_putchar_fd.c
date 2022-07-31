@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 20:39:59 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 17:51:29 by noshiro          ###   ########.fr       */
+/*   Created: 2022/05/30 23:02:16 by pantti            #+#    #+#             */
+/*   Updated: 2022/07/31 17:59:23 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	while (n--)
-		*(char *)(s++) = '\0';
+	write(fd, &c, 1);
 }
-
-// #include <libc.h>
-// int	main(void)
-// {
-// 	char	*s = NULL;
-// 	size_t	n = 3;
-// 	bzero(s,n);
-// }
-//sがnullの時はsegfaultするのが本家の挙動

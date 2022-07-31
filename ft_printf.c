@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/31 17:50:49 by noshiro           #+#    #+#             */
+/*   Updated: 2022/07/31 18:04:37 by noshiro          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_printpercent(void)
@@ -108,12 +120,13 @@ int	ft_printf(const char *str, ...)
 #include <libc.h>
 int main()
 {
-	// char *s;
+	char *s;
+	s = "あいう";
 	// s = malloc(INT_MAX);
 	// s[INT_MAX-1] = '\0';
 	// memset(s,'a',INT_MAX-1);
-	int s;
-	s = 9;
-   ft_printf("%p",s);
+	// int s;
+	// s = 9;
+   ft_printf("%s",s);
     return(0);
 }

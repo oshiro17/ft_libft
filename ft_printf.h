@@ -6,7 +6,7 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 12:00:00 by ajordan-          #+#    #+#             */
-/*   Updated: 2022/07/29 20:24:54 by noshiro          ###   ########.fr       */
+/*   Updated: 2022/07/31 18:00:13 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <stdlib.h>
 
+void	ft_putchar_fd(char c, int fd);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 int		ft_printf(const char *format, ...);
