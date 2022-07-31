@@ -33,11 +33,7 @@ int	ft_printstr(char *str)
 		ft_putstr("(null)");
 		return (6);
 	}
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	ft_putstr(str);
 	return (i);
 }
 
@@ -69,18 +65,18 @@ int	ft_formats(va_list args, const char format)
 	int	print_length;
 
 	print_length = 0;
-	// if (format == 'c')
-	// 	print_length += ft_printchar(va_arg(args, int));
-	// else if (format == 's')
-	// 	print_length += ft_printstr(va_arg(args, char *));
-	// else if (format == 'p')
-	// 	print_length += ft_print_ptr(va_arg(args, unsigned long long));
+	if (format == 'c')
+		print_length += ft_printchar(va_arg(args, int));
+	else if (format == 's')
+		print_length += ft_printstr(va_arg(args, char *));
+	else if (format == 'p')
+		print_length += ft_print_ptr(va_arg(args, unsigned long long));
 	if (format == 'd' || format == 'i')
 		print_length += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
 		print_length += ft_print_unsigned(va_arg(args, unsigned int));
-	// else if (format == 'x' || format == 'X')
-	// 	print_length += ft_print_hex(va_arg(args, unsigned int), format);
+	else if (format == 'x' || format == 'X')
+		print_length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		print_length += ft_printpercent();
 	return (print_length);
@@ -116,6 +112,8 @@ int main()
 	// s = malloc(INT_MAX);
 	// s[INT_MAX-1] = '\0';
 	// memset(s,'a',INT_MAX-1);
-   ft_printf("%u",(unsigned int)INT_MAX+3);
+	int s;
+	s = 9;
+   ft_printf("%p",s);
     return(0);
 }
