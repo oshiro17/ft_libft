@@ -6,25 +6,11 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 19:56:19 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 19:56:20 by noshiro          ###   ########.fr       */
+/*   Updated: 2022/08/03 12:28:32 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static	size_t	count_digits(int n)
-{
-	size_t	digits_num;
-
-	digits_num = 1;
-	n = n / 10;
-	while (n)
-	{
-		n = n / 10;
-		digits_num++;
-	}
-	return (digits_num);
-}
 
 char	*ft_uitoa(unsigned int n)
 {

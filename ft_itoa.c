@@ -6,13 +6,13 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 19:27:51 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 17:57:16 by noshiro          ###   ########.fr       */
+/*   Updated: 2022/07/31 20:07:24 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	size_t	count_digits(int n)
+size_t	count_digits(int n)
 {
 	size_t	digits_num;
 

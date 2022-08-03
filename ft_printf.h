@@ -6,7 +6,7 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 12:00:00 by ajordan-          #+#    #+#             */
-/*   Updated: 2022/07/31 20:05:37 by noshiro          ###   ########.fr       */
+/*   Updated: 2022/07/31 20:20:11 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ char			*ft_uitoa(unsigned int n);
 int				ft_num_len(unsigned	int num);
 void			ft_put_hex(unsigned int num, const char format);
 int				ft_hex_len(unsigned	int num);
-
+int				ft_printnbr(int n);
 #endif

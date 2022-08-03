@@ -6,7 +6,7 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:50:49 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 20:05:07 by noshiro          ###   ########.fr       */
+/*   Updated: 2022/08/03 12:29:17 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ int	ft_printf(const char *str, ...)
 // 	// memset(s,'a',INT_MAX-1);
 // 	// int s;
 // 	// s = 9;
-//    ft_printf("%p",s);
+//    ft_printf("%s",s);
 //     return(0);
 // }
