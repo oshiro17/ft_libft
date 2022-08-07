@@ -1,49 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/29 17:10:05 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 19:56:58 by noshiro          ###   ########.fr       */
+/*   Created: 2022/08/05 17:11:46 by noshiro           #+#    #+#             */
+/*   Updated: 2022/08/06 22:14:43 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hex_len(unsigned	int num)
+int	ft_printstr(char *str)
 {
-	int	len;
+	size_t	i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	i = ft_strlen(str);
+	ft_putstr(str);
+	return ((int)i);
+}
+
+int	ft_printnbr(int n)
+{
+	int		len;
+	char	*num;
 
 	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 16;
-	}
+	num = ft_itoa(n);
+	len = ft_printstr(num);
+	free(num);
 	return (len);
 }
 
-void	ft_put_hex(unsigned int num, const char format)
+int	ft_print_unsigned(unsigned int n)
 {
-	if (num >= 16)
-	{
-		ft_put_hex(num / 16, format);
-		ft_put_hex(num % 16, format);
-	}
-	else
-	{
-		if (num <= 9)
-			ft_printchar(num + '0');
-		else
-		{
-			if (format == 'x')
-				ft_printchar(num - 10 + 'a');
-			if (format == 'X')
-				ft_printchar(num - 10 + 'A');
-		}
-	}
+	unsigned int	len;
+	char			*num;
+
+	len = 0;
+	num = ft_uitoa(n);
+	len = ft_printstr(num);
+	free(num);
+	return (len);
 }
 
 int	ft_print_hex(unsigned int num, const char format)
@@ -53,4 +58,10 @@ int	ft_print_hex(unsigned int num, const char format)
 	else
 		ft_put_hex(num, format);
 	return (ft_hex_len(num));
+}
+
+int	ft_printpercent(void)
+{
+	write(1, "%", 1);
+	return (1);
 }

@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_put_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 16:04:24 by noshiro           #+#    #+#             */
-/*   Updated: 2022/08/06 23:13:25 by noshiro          ###   ########.fr       */
+/*   Created: 2022/08/06 16:07:05 by noshiro           #+#    #+#             */
+/*   Updated: 2022/08/06 22:13:38 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_num_len(unsigned	int num)
+int	ft_hex_len(unsigned	int num)
 {
 	int	len;
 
-	if (num == 0)
-		return (1);
 	len = 0;
 	while (num != 0)
 	{
 		len++;
-		num = num / 10;
+		num = num / 16;
 	}
 	return (len);
 }
 
-char	*ft_uitoa(unsigned int n)
+void	ft_put_hex(unsigned int num, const char format)
 {
-	char	*num;
-	int		len;
-
-	len = ft_num_len(n);
-	num = (char *)malloc(sizeof(char) * (len + 1));
-	if (!num)
-		return (0);
-	num[len] = '\0';
-	if (n == 0)
-		num[len - 1] = 0 + '0';
-	while (n != 0)
+	if (num >= 16)
 	{
-		num[len - 1] = n % 10 + '0';
-		n = n / 10;
-		len--;
+		ft_put_hex(num / 16, format);
+		ft_put_hex(num % 16, format);
 	}
-	return (num);
+	else
+	{
+		if (num <= 9)
+			ft_printchar(num + '0');
+		else
+		{
+			if (format == 'x')
+				ft_printchar(num - 10 + 'a');
+			if (format == 'X')
+				ft_printchar(num - 10 + 'A');
+		}
+	}
 }

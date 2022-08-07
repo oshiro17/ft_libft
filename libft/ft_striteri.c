@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 20:39:59 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 17:51:29 by noshiro          ###   ########.fr       */
+/*   Created: 2022/05/30 22:52:29 by pantti            #+#    #+#             */
+/*   Updated: 2022/06/17 15:06:46 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (n--)
-		*(char *)(s++) = '\0';
+	unsigned int	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 
-// #include <libc.h>
-// int	main(void)
+// #include "stdio.h"
+// #include "string.h"
+// void ft_nonoka(unsigned int i, char *chr)
 // {
-// 	char	*s = NULL;
-// 	size_t	n = 3;
-// 	bzero(s,n);
+// 	printf("%d,は%c",i,*chr);
 // }
-//sがnullの時はsegfaultするのが本家の挙動
+// int main(void){
+// 	ft_striteri("sflskjdlfkjsl",ft_nonoka);
+// 	return(0);
+// }

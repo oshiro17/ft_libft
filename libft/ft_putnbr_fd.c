@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 19:48:52 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 20:01:10 by noshiro          ###   ########.fr       */
+/*   Created: 2022/06/17 19:11:34 by noshiro           #+#    #+#             */
+/*   Updated: 2022/06/17 19:11:37 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_unsigned(unsigned int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	len;
-	char			*num;
+	long	l_n;
 
-	len = 0;
-	num = ft_uitoa(n);
-	len = ft_printstr(num);
-	free(num);
-	return (len);
+	l_n = (long)n;
+	if (l_n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		l_n *= -1;
+	}
+	if (9 < l_n)
+		ft_putnbr_fd(l_n / 10, fd);
+	ft_putchar_fd("0123456789"[l_n % 10], fd);
 }

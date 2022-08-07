@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 16:03:05 by noshiro           #+#    #+#             */
-/*   Updated: 2022/08/06 22:13:49 by noshiro          ###   ########.fr       */
+/*   Created: 2022/04/14 21:00:05 by noshiro           #+#    #+#             */
+/*   Updated: 2022/06/17 18:51:42 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr(char *str)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	c;
+	size_t	n_len;
+	char	*hay;
 
 	i = 0;
-	while (str[i])
+	hay = (char *)haystack;
+	n_len = ft_strlen(needle);
+	if (n_len == 0)
+		return (hay);
+	while (hay[i] != '\0' && i < len)
 	{
-		write(1, &str[i], 1);
+		c = 0;
+		while (hay[i + c] != '\0' && needle[c] != '\0'
+			&& hay[i + c] == needle[c] && i + c < len)
+		{
+			c++;
+		}
+		if (c == n_len)
+			return (hay + i);
 		i++;
 	}
+	return (0);
 }

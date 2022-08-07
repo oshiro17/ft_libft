@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 23:02:16 by pantti            #+#    #+#             */
-/*   Updated: 2022/07/31 17:59:23 by noshiro          ###   ########.fr       */
+/*   Created: 2022/04/11 02:05:18 by pantti            #+#    #+#             */
+/*   Updated: 2022/04/26 15:15:47 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isascii(int c)
 {
-	write(fd, &c, 1);
+	if (0 <= c && c <= 127)
+		return (1);
+	return (0);
 }

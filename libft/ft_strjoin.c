@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 16:03:05 by noshiro           #+#    #+#             */
-/*   Updated: 2022/08/06 22:13:49 by noshiro          ###   ########.fr       */
+/*   Created: 2022/04/25 12:29:07 by noshiro           #+#    #+#             */
+/*   Updated: 2022/05/09 15:09:34 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr(char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	int		i;
+	char	*nstr;
+	int		length;
 
 	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	if (!s1 || !s2)
+		return (NULL);
+	length = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	nstr = (char *)malloc(sizeof(char) * (length + 1));
+	if (!nstr)
+		return (NULL);
+	while (*s1)
+		nstr[i++] = *s1++;
+	while (*s2)
+		nstr[i++] = *s2++;
+	nstr[i] = '\0';
+	return (nstr);
 }

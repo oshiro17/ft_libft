@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 19:50:48 by noshiro           #+#    #+#             */
-/*   Updated: 2022/07/31 20:16:05 by noshiro          ###   ########.fr       */
+/*   Created: 2022/04/11 20:39:59 by noshiro           #+#    #+#             */
+/*   Updated: 2022/06/19 14:57:55 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printnbr(int n)
+void	ft_bzero(void *s, size_t n)
 {
-	int		len;
-	char	*num;
-
-	len = 0;
-	num = ft_itoa(n);
-	len = ft_printstr(num);
-	free(num);
-	return (len);
+	while (n--)
+		*(char *)(s++) = '\0';
 }
+
+// #include <libc.h>
+// int	main(void)
+// {
+// 	char	*s = NULL;
+// 	size_t	n = 3;
+// 	bzero(s,n);
+// }
+//sがnullの時はsegfaultするのが本家の挙動
